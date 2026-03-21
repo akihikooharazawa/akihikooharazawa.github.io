@@ -18,26 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <style>
-      .pub-tabs { margin: 0 20px 10px 20px; }
-      .pub-tab {
-        display: inline-block;
-        padding: 5px 14px;
-        margin-right: 4px;
-        cursor: pointer;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 14px;
-        font-family: 'Lato', Verdana, Helvetica, sans-serif;
-        background: none;
-        color: #555;
-        text-decoration: none;
-        -webkit-appearance: none;
-        appearance: none;
-      }
-      .pub-tab:hover { border-color: #999; color: #000; }
-      .pub-tab.active { border-color: #999; background: #f0f0f0; color: #000; font-weight: bold; }
-    </style>
+    
   </head>
 
   <body>
@@ -102,16 +83,10 @@
               </td>
             </tr>
           </tbody></table>
-          <div class="pub-tabs">
-            <button class="pub-tab active" onclick="filterPubs('all', this)">All</button>
-            <button class="pub-tab" onclick="filterPubs('selected', this)">Selected</button>
-            <button class="pub-tab" onclick="filterPubs('physics', this)">Physics-based Vision</button>
-            <button class="pub-tab" onclick="filterPubs('biology', this)">Biology / Neuroscience</button>
-          </div>
-          <table id="pub-table" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             
             <!-- ICCP 2025 -->
-            <tr data-category="selected physics">
+            <tr>
               <td style="padding:20px;width:25%;vertical-align:middle">
                 <video id="theory" width="160" height="120" autoplay muted loop playsinline style="border-style: none">
                   <source src="static/videos/ICCP2025.mp4" type="video/mp4">
@@ -131,7 +106,7 @@
             <!-- End ICCP 2025 -->
 
             <!-- ASSCET 2025 -->
-            <tr data-category="">
+            <tr>
               <td style="padding:20px;width:25%;vertical-align:middle">
                 <img src="static/images/2025ASSETS.png" alt="2025ASSETS.png" width="160" height="160" style="border-style: none">
               </td>
@@ -149,7 +124,7 @@
             <!-- End ASSCET 2025 -->
 
             <!-- JID 2025 -->
-            <tr data-category="biology">
+            <tr>
               <td style="padding:20px;width:25%;vertical-align:middle">
                 <img src="static/images/2025JID.png" alt="2025JID.png" width="160" height="160" style="border-style: none">
               </td>
@@ -167,7 +142,7 @@
             <!-- End JID 2025 -->
 
             <!-- JDS 2025 -->
-            <tr data-category="biology">
+            <tr>
               <td style="padding:20px;width:25%;vertical-align:middle">
                 <img src="static/images/2024JDS.png" alt="2024JDS.png" width="160" height="160" style="border-style: none">
               </td>
@@ -185,7 +160,7 @@
             <!-- End JDS 2025 -->
 
             <!-- Cerebral Cortex 2021 -->
-            <tr data-category="neuro">
+            <tr>
               <td style="padding:20px;width:25%;vertical-align:middle">
                 <img src="static/images/2021CB.png" alt="2021CB.png" width="160" height="160" style="border-style: none">
               </td>
@@ -203,7 +178,7 @@
             <!-- End Cerebral Cortex 2021 -->
 
             <!-- Skin Research & Technology 2020 -->
-            <tr data-category="biology">
+            <tr>
               <td style="padding:20px;width:25%;vertical-align:middle">
                 <img src="static/images/2020SRT.png" alt="2020SRT.png" width="160" height="160" style="border-style: none">
               </td>
@@ -274,20 +249,5 @@
         </td>
       </tr>
     </table>
-  <script>
-    function filterPubs(cat, btn) {
-      document.querySelectorAll('.pub-tab').forEach(function(tab) {
-        tab.classList.remove('active');
-      });
-      btn.classList.add('active');
-      document.querySelectorAll('#pub-table tr[data-category]').forEach(function(row) {
-        var cats = row.dataset.category.split(' ');
-        var show = cat === 'all' ||
-                   cats.indexOf(cat) !== -1 ||
-                   (cat === 'biology' && cats.indexOf('neuro') !== -1);
-        row.style.display = show ? '' : 'none';
-      });
-    }
-  </script>
   </body>
 </html>
