@@ -37,6 +37,70 @@
       }
       .pub-tab:hover { border-color: #999; color: #000; }
       .pub-tab.active { border-color: #999; background: #f0f0f0; color: #000; font-weight: bold; }
+
+      /* Project cards */
+      .project-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 0 20px 20px 20px;
+      }
+      .project-card {
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        overflow: hidden;
+        width: 400px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        display: flex;
+        flex-direction: column;
+      }
+      .project-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        display: block;
+      }
+      .project-card-body {
+        padding: 14px 16px 16px 16px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .project-card-title {
+        font-size: 15px;
+        font-weight: bold;
+        color: #1a1a1a;
+        margin: 0 0 6px 0;
+        line-height: 1.35;
+      }
+      .project-card-year {
+        font-size: 13px;
+        color: #999;
+        margin: 0 0 8px 0;
+      }
+      .project-card-desc {
+        font-size: 13px;
+        color: #444;
+        margin: 0 0 12px 0;
+        line-height: 1.5;
+        flex: 1;
+      }
+      .project-card-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .project-card-link {
+        font-size: 13px;
+        color: #555;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        padding: 4px 14px;
+        text-decoration: none;
+        font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      }
+      .project-card-link:hover { border-color: #999; color: #000; }
     </style>
   </head>
 
@@ -78,15 +142,15 @@
           <!-- NEWS -->
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
             <tr>
-              <td>
+              <td style="padding-bottom:5px">
                 <h2>News</h2>
               </td>
             </tr>
           </tbody></table>
           <table width="100%" align="center" border="0" cellpadding="20"><tbody>
-            
+
           <tr>
-            <td style="padding:20px;width:25%;vertical-align:top;">
+            <td style="padding:5px 20px;width:25%;vertical-align:top;">
               <ul style="list-style:none;padding-left:0;margin:0;">
                 <li>・Best <a href="https://imaging.cs.cmu.edu/vision-with-heat-and-light/files/Vision_with_Heat_and_Light_Poster.pdf">Poster</a> Award, CVPR Workshop on Computational Cameras and Displays, 2025.</li>
                 <li>・Paper on "Resolving Ambiguities in Heat Conduction and Shading" accepted to ICCP 2025.</li>
@@ -112,7 +176,7 @@
             
             <!-- ICCP 2025 -->
             <tr data-category="selected physics">
-              <td style="padding:20px;width:25%;vertical-align:middle">
+              <td style="padding:5px 20px;width:25%;vertical-align:middle">
                 <video id="theory" width="160" height="120" autoplay muted loop playsinline style="border-style: none">
                   <source src="static/videos/ICCP2025.mp4" type="video/mp4">
                 </video>
@@ -125,14 +189,14 @@
                 <strong>Akihiko Oharazawa</strong>, Sriram Narayanan, Mani Ramanagopal, Srinivasa G. Narasimhan
                 <br>
                 <br>
-                <em>International Conference on Computational Photography (ICCP)</em>, 2025
+                <em>IEEE International Conference on Computational Photography (ICCP)</em>, 2025
               </td>
             </tr>
             <!-- End ICCP 2025 -->
 
             <!-- ASSCET 2025 -->
             <tr data-category="">
-              <td style="padding:20px;width:25%;vertical-align:middle">
+              <td style="padding:5px 20px;width:25%;vertical-align:middle">
                 <img src="static/images/2025ASSETS.png" alt="2025ASSETS.png" width="160" height="160" style="border-style: none">
               </td>
               <td width="75%" valign="middle">
@@ -150,7 +214,7 @@
 
             <!-- JID 2025 -->
             <tr data-category="biology">
-              <td style="padding:20px;width:25%;vertical-align:middle">
+              <td style="padding:5px 20px;width:25%;vertical-align:middle">
                 <img src="static/images/2025JID.png" alt="2025JID.png" width="160" height="160" style="border-style: none">
               </td>
               <td width="75%" valign="middle">
@@ -168,7 +232,7 @@
 
             <!-- JDS 2025 -->
             <tr data-category="biology">
-              <td style="padding:20px;width:25%;vertical-align:middle">
+              <td style="padding:5px 20px;width:25%;vertical-align:middle">
                 <img src="static/images/2024JDS.png" alt="2024JDS.png" width="160" height="160" style="border-style: none">
               </td>
               <td width="75%" valign="middle">
@@ -186,7 +250,7 @@
 
             <!-- Cerebral Cortex 2021 -->
             <tr data-category="neuro">
-              <td style="padding:20px;width:25%;vertical-align:middle">
+              <td style="padding:5px 20px;width:25%;vertical-align:middle">
                 <img src="static/images/2021CB.png" alt="2021CB.png" width="160" height="160" style="border-style: none">
               </td>
               <td width="75%" valign="middle">
@@ -204,7 +268,7 @@
 
             <!-- Skin Research & Technology 2020 -->
             <tr data-category="biology">
-              <td style="padding:20px;width:25%;vertical-align:middle">
+              <td style="padding:5px 20px;width:25%;vertical-align:middle">
                 <img src="static/images/2020SRT.png" alt="2020SRT.png" width="160" height="160" style="border-style: none">
               </td>
               <td width="75%" valign="middle">
@@ -222,44 +286,57 @@
           </tbody></table>
 
           
+          <!-- PROJECTS -->
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2>Projects</h2>
+              </td>
+            </tr>
+          </tbody></table>
+          <div class="project-grid">
+
+            <!-- Vision with Heat and Light -->
+            <div class="project-card">
+              <a href="https://imaging.cs.cmu.edu/vision-with-heat-and-light/">
+                <img src="static/images/vision_with_light_and_heat_teaser.jpg" alt="Vision with Heat and Light">
+              </a>
+              <div class="project-card-body">
+                <p class="project-card-title">Vision with Heat and Light</p>
+                <p class="project-card-year">2024-Present (CMU)</p>
+                <p class="project-card-desc">Jointly leveraging thermal and optical information for physics-based scene understanding and novel imaging modalities.</p>
+                <div class="project-card-links">
+                  <a class="project-card-link" href="https://imaging.cs.cmu.edu/vision-with-heat-and-light/">Project Page</a>
+                </div>
+              </div>
+            </div>
+            <!-- End Vision with Heat and Light -->
+
+          </div>
+
+          <!-- PATENTS -->
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
             <tr>
-              <td>
+              <td style="padding-bottom:5px">
                 <h2>Patents</h2>
               </td>
             </tr>
           </tbody></table>
           <table width="100%" align="center" border="0" cellpadding="20"><tbody>
-            
             <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-              <td width="75%" valign="middle">
-                Skin Image Capturing System, P2023-102083, 2023
-                <br>
-                Kenichiro Yoshida, Masahiro Uchiyama, Shinji Kodama, <strong>Akihiko Oharazawa</strong><br>
-                <br>
-                Information Presentation Method and Information Presentation Device, WO24-019101, 2023
-                <br>
-                <strong>Akihiko Oharazawa</strong>, Sho Kikuchi<br>
-                <br>
-                Information Presentation Method and Information Presentation Device, P2023-117376, 2023
-                <br>
-                <strong>Akihiko Oharazawa</strong>, Sho Kikuchi<br>
-                <br>
-                Lip Evaluation Method, P2023-117376, 2022
-                <br>
-                <strong>Akihiko Oharazawa</strong>, Haruko Yasumori, Takanori Igarashi, Kenji Kaida, Yuuko Ohsugi, Eiko Tamura<br>
-                <br>
-                Lip Evaluation Method, P2022-086627, 2022
-                <br>
-                <strong>Akihiko Oharazawa</strong>, Haruko Yasumori, Takanori Igarashi, Kenji Kaida, Yuuko Ohsugi, Eiko Tamura<br>
-                <br>
-                Image Processing Method, P2019-039939, 2019
-                <br>
-                <strong>Akihiko Oharazawa</strong>, Masaki Ogino<br>
+              <td style="padding:5px 20px">
+                <ul style="list-style:none;padding-left:0;margin:0;">
+                  <li>・P2025-086813, Information Processing System, Method, and Computer Program (2025)</li>
+                  <li>・P2025-086812, Information Processing System, Method, and Computer Program (2025)</li>
+                  <li>・WO24-019101, Information Presentation Method and Device (2023)</li>
+                  <li>・P2023-117376, Information Presentation Method and Device (2023)</li>
+                  <li>・P2023-102083, Skin Imaging System (2023)</li>
+                  <li>・P2022-046771, Lip Evaluation Method (2022)</li>
+                  <li>・P2022-086627, Lip Evaluation Method (2022)</li>
+                  <li>・P2019-039939, Image Processing Method (2019)</li>
+                </ul>
               </td>
             </tr>
-            
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
