@@ -16,7 +16,7 @@
 
     <meta name="author" content="Akihiko Oharazawa">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="static/images/favicon/favicon.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <style>
       .pub-tabs { margin: 0 20px 10px 20px; }
@@ -114,16 +114,13 @@
                 <p class="name" style="text-align: center;">
                   Akihiko Oharazawa
                 </p>
-                <p>Hi, I'm a research scientist at <a href="https://www.kao.com/global/en/">Kao Corporation</a>,
-                  and currently a visiting researcher at the <a href="https://www.ri.cmu.edu/">Robotics Institute</a>,
-                  <a href="https://www.cs.cmu.edu/">School of Computer Science</a>,
-                  <a href="https://www.cmu.edu/">Carnegie Mellon University</a> working with Prof.<a href="https://www.cs.cmu.edu/~srinivas/">Srinivasa Narasimhan</a>.
+                <p>Hi, I'm a visiting researcher at the <a href="https://www.ri.cmu.edu/">Robotics Institute</a>,
+                  <!-- <a href="https://www.cs.cmu.edu/">School of Computer Science</a>, -->
+                  <a href="https://www.cmu.edu/">Carnegie Mellon University</a>, where I am fortunately working with Prof. <a href="https://www.cs.cmu.edu/~srinivas/">Srinivasa Narasimhan</a>. 
+                  I am also employed as a research scientist at <a href="https://www.kao.com/global/en/">Kao Corporation</a>.
                 </p>
                 <p>
-                  Previously, I received my MS in Comprehensive Human Science from the <a href="https://www.tsukuba.ac.jp/en/">University of Tsukuba</a>.
-                </p>
-                <p>
-                  Currently, I'm exploring topics in computational imaging and vision, with a focus on physics-based approaches.
+                  My research interests broadly span computer vision and computational imaging, with a focus on physics-based approaches.
                 </p>
                 <p style="text-align:center">
                   <a href="mailto:a.oharazawa@gmail.com">Email</a> &nbsp;/&nbsp;
@@ -152,6 +149,7 @@
           <tr>
             <td style="padding:5px 20px;width:25%;vertical-align:top;">
               <ul style="list-style:none;padding-left:0;margin:0;">
+                <li>・Presenting and joining CVPR Computational Cameras and Displays Workshop, 2026.</li>
                 <li>・Best <a href="https://imaging.cs.cmu.edu/vision-with-heat-and-light/files/Vision_with_Heat_and_Light_Poster.pdf">Poster</a> Award, CVPR Workshop on Computational Cameras and Displays, 2025.</li>
                 <li>・Paper on "Resolving Ambiguities in Heat Conduction and Shading" accepted to ICCP 2025.</li>
               </ul>
@@ -167,20 +165,37 @@
             </tr>
           </tbody></table>
           <div class="pub-tabs">
-            <button class="pub-tab active" onclick="filterPubs('all', this)">All</button>
-            <button class="pub-tab" onclick="filterPubs('selected', this)">Selected</button>
+            <button class="pub-tab active" onclick="filterPubs('selected', this)">Selected</button>
+            <button class="pub-tab" onclick="filterPubs('all', this)">All</button>
             <button class="pub-tab" onclick="filterPubs('physics', this)">Physics-based Vision</button>
             <button class="pub-tab" onclick="filterPubs('hci', this)">HCI</button>
             <button class="pub-tab" onclick="filterPubs('biology', this)">Biology / Neuroscience</button>
           </div>
           <table id="pub-table" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+            <!-- ICCP 2026 -->
+            <tr data-category="selected physics">
+              <td style="padding:5px 20px;width:25%;vertical-align:middle">
+                <video id="theory" width="160" height="120" autoplay muted loop playsinline style="border-style: none">
+                  <source src="static/videos/2026-ICCP.mp4" type="video/mp4">
+                </video>
+              </td>
+              <td width="75%" valign="middle">
+                <a href="https://revealing-subtle-heat.github.io/">
+                  <span class="papertitle">Revealing Subtle Heat Flows all around us using Microbolometric Videos</span>
+                </a>
+                <br>
+                Mani Ramanagopal, <strong>Akihiko Oharazawa</strong>, Sriram Narayanan, Zeqing Yuan, Srinivasa G. Narasimhan
+                <br>
+                <em>PAMI & ICCP (Conditionally accepted), 2026</em>
+              </td>
+            </tr>
+            <!-- End ICCP 2026 -->
             
             <!-- ICCP 2025 -->
             <tr data-category="selected physics">
               <td style="padding:5px 20px;width:25%;vertical-align:middle">
-                <video id="theory" width="160" height="120" autoplay muted loop playsinline style="border-style: none">
-                  <source src="static/videos/ICCP2025.mp4" type="video/mp4">
-                </video>
+                <img src="static/images/2025-ICCP.png" alt="2025-ICCP.png" width="160" height="120" style="border-style: none;">
               </td>
               <td width="75%" valign="middle">
                 <a href="https://imaging.cs.cmu.edu/shape-from-laplacian-and-shading/">
@@ -189,8 +204,7 @@
                 <br>
                 <strong>Akihiko Oharazawa</strong>, Sriram Narayanan, Mani Ramanagopal, Srinivasa G. Narasimhan
                 <br>
-                <br>
-                <em>IEEE International Conference on Computational Photography (ICCP)</em>, 2025
+                <em>ICCP, 2025</em>
               </td>
             </tr>
             <!-- End ICCP 2025 -->
@@ -198,7 +212,7 @@
             <!-- ASSCET 2025 -->
             <tr data-category="hci">
               <td style="padding:5px 20px;width:25%;vertical-align:middle">
-                <img src="static/images/2025ASSETS.png" alt="2025ASSETS.png" width="160" height="160" style="border-style: none">
+                <img src="static/images/2025-ASSETS.png" alt="2025-ASSETS.png" width="160" height="120" style="border-style: none;">
               </td>
               <td width="75%" valign="middle">
                 <a href="https://arxiv.org/abs/2507.03942">
@@ -207,8 +221,7 @@
                 <br>
                 Franklin Mingzhe Li, <strong>Akihiko Oharazawa</strong>, Chloe Qingyu Zhu, Misty Fan, Daisuke Sato, Chieko Asakawa, Patrick Carrington
                 <br>
-                <br>
-                <em>International ACM SIGACCESS Conference on Computers and Accessibility (ASSETS)</em>, 2025
+                <em>ASSETS, 2025</em>
               </td>
             </tr>
             <!-- End ASSCET 2025 -->
@@ -216,7 +229,7 @@
             <!-- JID 2025 -->
             <tr data-category="biology">
               <td style="padding:5px 20px;width:25%;vertical-align:middle">
-                <img src="static/images/2025JID.png" alt="2025JID.png" width="160" height="160" style="border-style: none">
+                <img src="static/images/2025-JID.png" alt="2025-JID.png" width="160" height="120" style="border-style: none;">
               </td>
               <td width="75%" valign="middle">
                 <a href="https://www.jidonline.org/article/S0022-202X(25)02268-7/fulltext">
@@ -225,8 +238,7 @@
                 <br>
                 <strong>Akihiko Oharazawa</strong>, Gulinu Maimaituxun, Koichi Watanabe, Takeshi Nishiyasu, Naoto Fujii
                 <br>
-                <br>
-                <em>Journal of Investigative Dermatology</em>, 2025
+                <em>Journal of Investigative Dermatology, 2025</em>
               </td>
             </tr>
             <!-- End JID 2025 -->
@@ -234,7 +246,7 @@
             <!-- JDS 2025 -->
             <tr data-category="biology">
               <td style="padding:5px 20px;width:25%;vertical-align:middle">
-                <img src="static/images/2024JDS.png" alt="2024JDS.png" width="160" height="160" style="border-style: none">
+                <img src="static/images/2024-JDS.png" alt="2024-JDS.png" width="160" height="120" style="border-style: none;">
               </td>
               <td width="75%" valign="middle">
                 <a href="https://www.jdsjournal.com/article/S0923-1811(24)00066-5/fulltext">
@@ -243,8 +255,7 @@
                 <br>
                 <strong>Akihiko Oharazawa</strong>, Gulinu Maimaituxun, Koichi Watanabe, Takeshi Nishiyasu, Naoto Fujii
                 <br>
-                <br>
-                <em>Journal of Dermatological Science</em>, 2024
+                <em>Journal of Dermatological Science, 2024</em>
               </td>
             </tr>
             <!-- End JDS 2025 -->
@@ -252,7 +263,7 @@
             <!-- Cerebral Cortex 2021 -->
             <tr data-category="neuro">
               <td style="padding:5px 20px;width:25%;vertical-align:middle">
-                <img src="static/images/2021CB.png" alt="2021CB.png" width="160" height="160" style="border-style: none">
+                <img src="static/images/2021-CB.png" alt="2021-CB.png" width="160" height="120" style="border-style: none;">
               </td>
               <td width="75%" valign="middle">
                 <a href="https://academic.oup.com/cercor/article/31/9/4386/6274998">
@@ -261,8 +272,7 @@
                 <br>
                 Masahiro Okamoto, Daisuke Mizuuchi, Koki Omura, Minchul Lee, <strong>Akihiko Oharazawa</strong>, Jang Soo Yook, Koshiro Inoue, Hideaki Soya
                 <br>
-                <br>
-                <em>Cerebral Cortex</em>, 2021
+                <em>Cerebral Cortex, 2021</em>
               </td>
             </tr>
             <!-- End Cerebral Cortex 2021 -->
@@ -270,7 +280,7 @@
             <!-- Skin Research & Technology 2020 -->
             <tr data-category="biology">
               <td style="padding:5px 20px;width:25%;vertical-align:middle">
-                <img src="static/images/2020SRT.png" alt="2020SRT.png" width="160" height="160" style="border-style: none">
+                <img src="static/images/2020-SRT.png" alt="2020-SRT.png" width="160" height="120" style="border-style: none;">
               </td>
               <td width="75%" valign="middle">
                 <a href="https://onlinelibrary.wiley.com/doi/10.1111/srt.12850">
@@ -279,8 +289,7 @@
                 <br>
                 <strong>Akihiko Oharazawa</strong>, Masaki Ogino, Masaru Sugahara, Masanori Tanahashi
                 <br>
-                <br>
-                <em>Skin Research & Technology</em>, 2020
+                <em>Skin Research & Technology, 2020</em>
               </td>
             </tr>
             <!-- End Skin Research & Technology 2020 -->
@@ -353,6 +362,11 @@
       </tr>
     </table>
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var defaultBtn = document.querySelector('.pub-tab.active');
+      filterPubs('selected', defaultBtn);
+    });
+
     function filterPubs(cat, btn) {
       document.querySelectorAll('.pub-tab').forEach(function(tab) {
         tab.classList.remove('active');
