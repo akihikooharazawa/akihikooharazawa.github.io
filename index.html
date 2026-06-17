@@ -7,38 +7,188 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-S3VWLBF1BC');
   </script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
     <title>Akihiko Oharazawa</title>
-
     <meta name="author" content="Akihiko Oharazawa">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
     <style>
-      .pub-tabs { margin: 0 20px 10px 20px; }
+      /* ── Filter tabs ── */
+      .pub-tabs {
+        margin: 0 20px 16px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
       .pub-tab {
         display: inline-block;
-        padding: 5px 14px;
-        margin-right: 4px;
+        padding: 5px 16px;
         cursor: pointer;
         border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 14px;
+        border-radius: 20px;
+        font-size: 13px;
         font-family: 'Lato', Verdana, Helvetica, sans-serif;
         background: none;
-        color: #555;
+        color: #666;
         text-decoration: none;
         -webkit-appearance: none;
         appearance: none;
+        transition: all 0.15s ease;
       }
-      .pub-tab:hover { border-color: #999; color: #000; }
-      .pub-tab.active { border-color: #999; background: #f0f0f0; color: #000; font-weight: bold; }
+      .pub-tab:hover { border-color: #888; color: #222; }
+      .pub-tab.active {
+        border-color: #1772d0;
+        background: #1772d0;
+        color: #fff;
+        font-weight: bold;
+      }
 
-      /* Project cards */
+      /* ── Publication card wrapper (scale target) ── */
+      .pub-list {
+        padding: 0 20px 8px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .pub-card-wrap {
+        transition: transform 0.2s ease;
+      }
+      .pub-card-wrap:hover {
+        transform: scale(1.03);
+      }
+
+      /* ── Publication card ── */
+      .pub-card {
+        display: flex;
+        align-items: stretch;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: rgba(150, 158, 166, 0.2) 0px 8px 24px;
+        overflow: hidden;
+      }
+      .pub-card-thumb-wrap {
+        flex-shrink: 0;
+        padding: 10px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+      }
+      .pub-card-thumb {
+        display: block;
+        object-fit: contain;
+      }
+      .pub-card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 16px 20px;
+        min-width: 0;
+        gap: 10px;
+      }
+      .pub-card-top {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+      }
+      .pub-card-venue {
+        font-size: 11px;
+        color: #374151;
+        margin: 0 0 3px 0;
+        line-height: 1.4;
+      }
+      .pub-card-title {
+        font-size: 17px;
+        font-weight: 700;
+        color: #111827;
+        line-height: 1.4;
+        margin: 0 0 3px 0;
+      }
+      .pub-card-title a {
+        color: #111827;
+        text-decoration: none;
+      }
+      .pub-card-title a:hover {
+        color: #1772d0;
+        text-decoration: none;
+      }
+      .pub-card-authors {
+        font-size: 11px;
+        color: #374151;
+        margin: 0 0 4px 0;
+        line-height: 1.5;
+      }
+      .pub-card-desc {
+        font-size: 11px;
+        color: #9CA3AF;
+        margin: 0;
+        line-height: 1.55;
+      }
+      .pub-card-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      /* ── Award badge ── */
+      .pub-award {
+        display: inline-flex;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 700;
+        color: #92400e;
+        background: #fef3c7;
+        box-shadow: inset 0 0 0 1px rgba(217, 119, 6, 0.3);
+        border-radius: 8px;
+        padding: 3px 10px;
+        margin-bottom: 4px;
+        width: fit-content;
+      }
+
+      /* ── Action buttons ── */
+      .pub-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 500;
+        padding: 4px 8px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-family: 'Inter', sans-serif;
+        white-space: nowrap;
+        border: none;
+        outline: none;
+        transition: background 0.15s ease;
+      }
+      .pub-btn:hover { text-decoration: none; }
+
+      .pub-btn-paper  { background: #eff6ff; color: #1d4ed8; box-shadow: inset 0 0 0 1px rgba(37,99,235,0.2); }
+      .pub-btn-paper:hover  { background: #dbeafe; color: #1d4ed8; }
+
+      .pub-btn-project { background: #f0fdf4; color: #15803d; box-shadow: inset 0 0 0 1px rgba(22,163,74,0.2); }
+      .pub-btn-project:hover { background: #bbf7d0; color: #15803d; }
+
+      .pub-btn-video  { background: #fefce8; color: #92400e; box-shadow: inset 0 0 0 1px rgba(217,119,6,0.2); }
+      .pub-btn-video:hover  { background: #fef08a; color: #92400e; }
+
+      .pub-btn-poster { background: #fdf4ff; color: #86198f; box-shadow: inset 0 0 0 1px rgba(168,85,247,0.2); }
+      .pub-btn-poster:hover { background: #e9d5ff; color: #86198f; }
+
+      .pub-btn-code   { background: #fff7ed; color: #c2410c; box-shadow: inset 0 0 0 1px rgba(234,88,12,0.2); }
+      .pub-btn-code:hover   { background: #ffedd5; color: #c2410c; }
+
+      .pub-btn-demo   { background: #faf5ff; color: #7c3aed; box-shadow: inset 0 0 0 1px rgba(124,58,237,0.2); }
+      .pub-btn-demo:hover   { background: #ede9fe; color: #7c3aed; }
+
+      /* ── Project cards ── */
       .project-grid {
         display: flex;
         flex-wrap: wrap;
@@ -54,6 +204,11 @@
         box-shadow: 0 2px 8px rgba(0,0,0,0.07);
         display: flex;
         flex-direction: column;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .project-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
       }
       .project-card img {
         width: 100%;
@@ -99,8 +254,10 @@
         padding: 4px 14px;
         text-decoration: none;
         font-family: 'Lato', Verdana, Helvetica, sans-serif;
+        transition: border-color 0.15s, color 0.15s;
       }
-      .project-card-link:hover { border-color: #999; color: #000; }
+      .project-card-link:hover { border-color: #999; color: #000; text-decoration: none; }
+
     </style>
   </head>
 
@@ -108,6 +265,8 @@
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
+
+          <!-- ── Bio ── -->
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr style="padding:0px">
               <td style="padding:2.5%;width:63%;vertical-align:middle">
@@ -115,8 +274,7 @@
                   Akihiko Oharazawa
                 </p>
                 <p>Hi, I'm a visiting researcher at the <a href="https://www.ri.cmu.edu/">Robotics Institute</a>,
-                  <!-- <a href="https://www.cs.cmu.edu/">School of Computer Science</a>, -->
-                  <a href="https://www.cmu.edu/">Carnegie Mellon University</a>, where I am fortunately working with Prof. <a href="https://www.cs.cmu.edu/~srinivas/">Srinivasa Narasimhan</a>. 
+                  <a href="https://www.cmu.edu/">Carnegie Mellon University</a>, where I am fortunately working with Prof. <a href="https://www.cs.cmu.edu/~srinivas/">Srinivasa Narasimhan</a>.
                   I am also employed as a research scientist at <a href="https://www.kao.com/global/en/">Kao Corporation</a>.
                 </p>
                 <p>
@@ -133,10 +291,9 @@
                 <a href="static/images/AkiOharazawa.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="static/images/AkiOharazawa.jpg" class="hoverZoomLink"></a>
               </td>
             </tr>
-
           </tbody></table>
-          
-          <!-- NEWS -->
+
+          <!-- ── News ── -->
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
             <tr>
               <td style="padding-bottom:5px">
@@ -145,25 +302,27 @@
             </tr>
           </tbody></table>
           <table width="100%" align="center" border="0" cellpadding="20"><tbody>
+            <tr>
+              <td style="padding:5px 20px;width:25%;vertical-align:top;">
+                <ul style="list-style:none;padding-left:0;margin:0;">
+                  <li>・Presenting and joining CVPR Computational Cameras and Displays Workshop, 2026.</li>
+                  <li>・Best <a href="https://imaging.cs.cmu.edu/vision-with-heat-and-light/files/Vision_with_Heat_and_Light_Poster.pdf">Poster</a> Award, CVPR Workshop on Computational Cameras and Displays, 2025.</li>
+                  <li>・Paper on "Resolving Ambiguities in Heat Conduction and Shading" accepted to ICCP 2025.</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody></table>
 
-          <tr>
-            <td style="padding:5px 20px;width:25%;vertical-align:top;">
-              <ul style="list-style:none;padding-left:0;margin:0;">
-                <li>・Presenting and joining CVPR Computational Cameras and Displays Workshop, 2026.</li>
-                <li>・Best <a href="https://imaging.cs.cmu.edu/vision-with-heat-and-light/files/Vision_with_Heat_and_Light_Poster.pdf">Poster</a> Award, CVPR Workshop on Computational Cameras and Displays, 2025.</li>
-                <li>・Paper on "Resolving Ambiguities in Heat Conduction and Shading" accepted to ICCP 2025.</li>
-              </ul>
-            </td>
-          </tr>
-
-          <!-- PUBLICATIONS -->
+          <!-- ── Publications heading ── -->
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle">
+            <tr>
+              <td style="padding:20px 20px 12px 20px;width:100%;vertical-align:middle">
                 <h2>Publications</h2>
               </td>
             </tr>
           </tbody></table>
+
+          <!-- Filter tabs -->
           <div class="pub-tabs">
             <button class="pub-tab active" onclick="filterPubs('selected', this)">Selected</button>
             <button class="pub-tab" onclick="filterPubs('all', this)">All</button>
@@ -171,132 +330,186 @@
             <button class="pub-tab" onclick="filterPubs('hci', this)">HCI</button>
             <button class="pub-tab" onclick="filterPubs('biology', this)">Biology / Neuroscience</button>
           </div>
-          <table id="pub-table" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+          <!-- Publication cards -->
+          <div class="pub-list" id="pub-list">
 
             <!-- ICCP 2026 -->
-            <tr data-category="selected physics">
-              <td style="padding:5px 20px;width:25%;vertical-align:middle">
-                <video id="theory" width="160" height="120" autoplay muted loop playsinline style="border-style: none">
-                  <source src="static/videos/2026-ICCP.mp4" type="video/mp4">
-                </video>
-              </td>
-              <td width="75%" valign="middle">
-                <a href="https://revealing-subtle-heat.github.io/">
-                  <span class="papertitle">Revealing Subtle Heat Flows all around us using Microbolometric Videos</span>
-                </a>
-                <br>
-                Mani Ramanagopal, <strong>Akihiko Oharazawa</strong>, Sriram Narayanan, Zeqing Yuan, Srinivasa G. Narasimhan
-                <br>
-                <em>PAMI & ICCP (Conditionally accepted), 2026</em>
-              </td>
-            </tr>
-            <!-- End ICCP 2026 -->
-            
-            <!-- ICCP 2025 -->
-            <tr data-category="selected physics">
-              <td style="padding:5px 20px;width:25%;vertical-align:middle">
-                <img src="static/images/2025-ICCP.png" alt="2025-ICCP.png" width="160" height="120" style="border-style: none;">
-              </td>
-              <td width="75%" valign="middle">
-                <a href="https://imaging.cs.cmu.edu/shape-from-laplacian-and-shading/">
-                  <span class="papertitle">Resolving Ambiguities in Heat Conduction and Shading</span>
-                </a>
-                <br>
-                <strong>Akihiko Oharazawa</strong>, Sriram Narayanan, Mani Ramanagopal, Srinivasa G. Narasimhan
-                <br>
-                <em>IEEE International Conference on Computational Photography (ICCP), 2025</em>
-              </td>
-            </tr>
-            <!-- End ICCP 2025 -->
+            <div class="pub-card-wrap" data-category="selected physics">
+              <div class="pub-card">
+                <div class="pub-card-thumb-wrap">
+                  <video class="pub-card-thumb" autoplay muted loop playsinline width="160" height="120" style="border-style:none">
+                    <source src="static/videos/2026-ICCP.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="pub-card-body">
+                  <div class="pub-card-top">
+                    <p class="pub-card-venue">PAMI &amp; ICCP 2026</p>
+                    <p class="pub-card-title">
+                      <a href="https://revealing-subtle-heat.github.io/">Revealing Subtle Heat Flows all around us using Microbolometric Videos</a>
+                    </p>
+                    <p class="pub-card-authors">
+                      Mani Ramanagopal, Akihiko Oharazawa, Sriram Narayanan, Zeqing Yuan, Srinivasa G. Narasimhan
+                    </p>
+                    <p class="pub-card-desc">We show that low-cost microbolometric cameras can capture subtle heat flows — convection, conduction, radiation — invisible to the naked eye, enabling new thermal imaging applications.</p>
+                  </div>
+                  <div class="pub-card-links">
+                    <a class="pub-btn pub-btn-project" href="https://revealing-subtle-heat.github.io/">website</a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            <!-- ASSCET 2025 -->
-            <tr data-category="hci">
-              <td style="padding:5px 20px;width:25%;vertical-align:middle">
-                <img src="static/images/2025-ASSETS.png" alt="2025-ASSETS.png" width="160" height="120" style="border-style: none;">
-              </td>
-              <td width="75%" valign="middle">
-                <a href="https://arxiv.org/abs/2507.03942">
-                  <span class="papertitle">More than One Step at a Time: Designing Procedural Feedback for Non-visual Makeup Routines</span>
-                </a>
-                <br>
-                Franklin Mingzhe Li, <strong>Akihiko Oharazawa</strong>, Chloe Qingyu Zhu, Misty Fan, Daisuke Sato, Chieko Asakawa, Patrick Carrington
-                <br>
-                <em>International ACM SIGACCESS Conference on Computers and Accessibility (ASSETS), 2025</em>
-              </td>
-            </tr>
-            <!-- End ASSCET 2025 -->
+            <!-- ICCP 2025 -->
+            <div class="pub-card-wrap" data-category="selected physics">
+              <div class="pub-card">
+                <div class="pub-card-thumb-wrap">
+                  <img class="pub-card-thumb" src="static/images/2025-ICCP.png" alt="ICCP 2025" width="160" height="120">
+                </div>
+                <div class="pub-card-body">
+                  <div class="pub-card-top">
+                    <p class="pub-card-venue">ICCP 2025</p>
+                    <p class="pub-card-title">
+                      <a href="https://imaging.cs.cmu.edu/shape-from-laplacian-and-shading/">Resolving Ambiguities in Heat Conduction and Shading</a>
+                    </p>
+                    <p class="pub-card-authors">
+                      Akihiko Oharazawa, Sriram Narayanan, Mani Ramanagopal, Srinivasa G. Narasimhan
+                    </p>
+                    <p class="pub-card-desc">A unified framework that jointly resolves inherent ambiguities in thermal conduction and shading cues for physics-based 3D scene understanding.</p>
+                  </div>
+                  <div class="pub-card-links">
+                    <a class="pub-btn pub-btn-project" href="https://imaging.cs.cmu.edu/shape-from-laplacian-and-shading/">website</a>
+                    <a class="pub-btn pub-btn-paper" href="https://imaging.cs.cmu.edu/shape_from_laplacian_and_shading/static/files/shape_from_laplacian_and_shading_ICCP2025.pdf">paper</a>
+                    <a class="pub-btn pub-btn-poster" href="https://imaging.cs.cmu.edu/shape_from_laplacian_and_shading/static/files/ICCP-2025-Poster.pdf">poster</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ASSETS 2025 -->
+            <div class="pub-card-wrap" data-category="hci">
+              <div class="pub-card">
+                <div class="pub-card-thumb-wrap">
+                  <img class="pub-card-thumb" src="static/images/2025-ASSETS.png" alt="ASSETS 2025" width="160" height="120">
+                </div>
+                <div class="pub-card-body">
+                  <div class="pub-card-top">
+                    <p class="pub-card-venue">ASSETS 2025</p>
+                    <p class="pub-card-title">
+                      <a href="https://arxiv.org/abs/2507.03942">More than One Step at a Time: Designing Procedural Feedback for Non-visual Makeup Routines</a>
+                    </p>
+                    <p class="pub-card-authors">
+                      Franklin Mingzhe Li, Akihiko Oharazawa, Chloe Qingyu Zhu, Misty Fan, Daisuke Sato, Chieko Asakawa, Patrick Carrington
+                    </p>
+                    <p class="pub-card-desc">We design and evaluate a system that provides step-by-step procedural feedback to support blind and low-vision users in performing makeup routines independently.</p>
+                  </div>
+                  <div class="pub-card-links">
+                    <a class="pub-btn pub-btn-paper" href="https://arxiv.org/abs/2507.03942">paper</a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <!-- JID 2025 -->
-            <tr data-category="biology">
-              <td style="padding:5px 20px;width:25%;vertical-align:middle">
-                <img src="static/images/2025-JID.png" alt="2025-JID.png" width="160" height="120" style="border-style: none;">
-              </td>
-              <td width="75%" valign="middle">
-                <a href="https://www.jidonline.org/article/S0022-202X(25)02268-7/fulltext">
-                  <span class="papertitle">Metabolomics of the Skin Dialysate Collected from the Forearm Subjected to Local Heating</span>
-                </a>
-                <br>
-                <strong>Akihiko Oharazawa</strong>, Gulinu Maimaituxun, Koichi Watanabe, Takeshi Nishiyasu, Naoto Fujii
-                <br>
-                <em>Journal of Investigative Dermatology, 2025</em>
-              </td>
-            </tr>
-            <!-- End JID 2025 -->
+            <div class="pub-card-wrap" data-category="biology">
+              <div class="pub-card">
+                <div class="pub-card-thumb-wrap">
+                  <img class="pub-card-thumb" src="static/images/2025-JID.png" alt="JID 2025" width="160" height="120">
+                </div>
+                <div class="pub-card-body">
+                  <div class="pub-card-top">
+                    <p class="pub-card-venue">Journal of Investigative Dermatology, 2025</p>
+                    <p class="pub-card-title">
+                      <a href="https://www.jidonline.org/article/S0022-202X(25)02268-7/fulltext">Metabolomics of the Skin Dialysate Collected from the Forearm Subjected to Local Heating</a>
+                    </p>
+                    <p class="pub-card-authors">
+                      Akihiko Oharazawa, Gulinu Maimaituxun, Koichi Watanabe, Takeshi Nishiyasu, Naoto Fujii
+                    </p>
+                    <p class="pub-card-desc">Metabolomic profiling of skin dialysate under local thermal stimulation, revealing heat-responsive biomarkers in skin interstitial fluid.</p>
+                  </div>
+                  <div class="pub-card-links">
+                    <a class="pub-btn pub-btn-paper" href="https://www.jidonline.org/article/S0022-202X(25)02268-7/fulltext">paper</a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            <!-- JDS 2025 -->
-            <tr data-category="biology">
-              <td style="padding:5px 20px;width:25%;vertical-align:middle">
-                <img src="static/images/2024-JDS.png" alt="2024-JDS.png" width="160" height="120" style="border-style: none;">
-              </td>
-              <td width="75%" valign="middle">
-                <a href="https://www.jdsjournal.com/article/S0923-1811(24)00066-5/fulltext">
-                  <span class="papertitle">Metabolome Analyses of Skin Dialysate: Insight into Skin Interstitial Fluid Biomarkers</span>
-                </a>
-                <br>
-                <strong>Akihiko Oharazawa</strong>, Gulinu Maimaituxun, Koichi Watanabe, Takeshi Nishiyasu, Naoto Fujii
-                <br>
-                <em>Journal of Dermatological Science, 2024</em>
-              </td>
-            </tr>
-            <!-- End JDS 2025 -->
+            <!-- JDS 2024 -->
+            <div class="pub-card-wrap" data-category="biology">
+              <div class="pub-card">
+                <div class="pub-card-thumb-wrap">
+                  <img class="pub-card-thumb" src="static/images/2024-JDS.png" alt="JDS 2024" width="160" height="120">
+                </div>
+                <div class="pub-card-body">
+                  <div class="pub-card-top">
+                    <p class="pub-card-venue">Journal of Dermatological Science, 2024</p>
+                    <p class="pub-card-title">
+                      <a href="https://www.jdsjournal.com/article/S0923-1811(24)00066-5/fulltext">Metabolome Analyses of Skin Dialysate: Insight into Skin Interstitial Fluid Biomarkers</a>
+                    </p>
+                    <p class="pub-card-authors">
+                      Akihiko Oharazawa, Gulinu Maimaituxun, Koichi Watanabe, Takeshi Nishiyasu, Naoto Fujii
+                    </p>
+                    <p class="pub-card-desc">Comprehensive metabolome-level characterization of skin dialysate to identify novel biomarkers present in skin interstitial fluid.</p>
+                  </div>
+                  <div class="pub-card-links">
+                    <a class="pub-btn pub-btn-paper" href="https://www.jdsjournal.com/article/S0923-1811(24)00066-5/fulltext">paper</a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <!-- Cerebral Cortex 2021 -->
-            <tr data-category="neuro">
-              <td style="padding:5px 20px;width:25%;vertical-align:middle">
-                <img src="static/images/2021-CB.png" alt="2021-CB.png" width="160" height="120" style="border-style: none;">
-              </td>
-              <td width="75%" valign="middle">
-                <a href="https://academic.oup.com/cercor/article/31/9/4386/6274998">
-                  <span class="papertitle">High-intensity Intermittent Training Enhances Spatial Memory and Hippocampal Neurogenesis Associated with BDNF Signaling in Rats</span>
-                </a>
-                <br>
-                Masahiro Okamoto, Daisuke Mizuuchi, Koki Omura, Minchul Lee, <strong>Akihiko Oharazawa</strong>, Jang Soo Yook, Koshiro Inoue, Hideaki Soya
-                <br>
-                <em>Cerebral Cortex, 2021</em>
-              </td>
-            </tr>
-            <!-- End Cerebral Cortex 2021 -->
+            <div class="pub-card-wrap" data-category="neuro">
+              <div class="pub-card">
+                <div class="pub-card-thumb-wrap">
+                  <img class="pub-card-thumb" src="static/images/2021-CB.png" alt="Cerebral Cortex 2021" width="160" height="120">
+                </div>
+                <div class="pub-card-body">
+                  <div class="pub-card-top">
+                    <p class="pub-card-venue">Cerebral Cortex, 2021</p>
+                    <p class="pub-card-title">
+                      <a href="https://academic.oup.com/cercor/article/31/9/4386/6274998">High-intensity Intermittent Training Enhances Spatial Memory and Hippocampal Neurogenesis Associated with BDNF Signaling in Rats</a>
+                    </p>
+                    <p class="pub-card-authors">
+                      Masahiro Okamoto, Daisuke Mizuuchi, Koki Omura, Minchul Lee, Akihiko Oharazawa, Jang Soo Yook, Koshiro Inoue, Hideaki Soya
+                    </p>
+                    <p class="pub-card-desc">High-intensity intermittent exercise promotes spatial memory and hippocampal neurogenesis in rats via BDNF-dependent signaling pathways.</p>
+                  </div>
+                  <div class="pub-card-links">
+                    <a class="pub-btn pub-btn-paper" href="https://academic.oup.com/cercor/article/31/9/4386/6274998">paper</a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <!-- Skin Research & Technology 2020 -->
-            <tr data-category="biology">
-              <td style="padding:5px 20px;width:25%;vertical-align:middle">
-                <img src="static/images/2020-SRT.png" alt="2020-SRT.png" width="160" height="120" style="border-style: none;">
-              </td>
-              <td width="75%" valign="middle">
-                <a href="https://onlinelibrary.wiley.com/doi/10.1111/srt.12850">
-                  <span class="papertitle">Skin Capillary Extraction Technique Based on Independent Component Analysis and Frangi Filter using Videomicroscopy</span>
-                </a>
-                <br>
-                <strong>Akihiko Oharazawa</strong>, Masaki Ogino, Masaru Sugahara, Masanori Tanahashi
-                <br>
-                <em>Skin Research & Technology, 2020</em>
-              </td>
-            </tr>
-            <!-- End Skin Research & Technology 2020 -->
-          </tbody></table>
+            <div class="pub-card-wrap" data-category="biology">
+              <div class="pub-card">
+                <div class="pub-card-thumb-wrap">
+                  <img class="pub-card-thumb" src="static/images/2020-SRT.png" alt="Skin Research & Technology 2020" width="160" height="120">
+                </div>
+                <div class="pub-card-body">
+                  <div class="pub-card-top">
+                    <p class="pub-card-venue">Skin Research &amp; Technology, 2020</p>
+                    <p class="pub-card-title">
+                      <a href="https://onlinelibrary.wiley.com/doi/10.1111/srt.12850">Skin Capillary Extraction Technique Based on Independent Component Analysis and Frangi Filter using Videomicroscopy</a>
+                    </p>
+                    <p class="pub-card-authors">
+                      Akihiko Oharazawa, Masaki Ogino, Masaru Sugahara, Masanori Tanahashi
+                    </p>
+                    <span class="pub-award">&#127942; Journal Cover Page</span>
+                    <p class="pub-card-desc">A technique combining ICA and Frangi vesselness filtering to automatically extract skin capillary structures from videomicroscopy images.</p>
+                  </div>
+                  <div class="pub-card-links">
+                    <a class="pub-btn pub-btn-paper" href="https://onlinelibrary.wiley.com/doi/10.1111/srt.12850">paper</a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          
-          <!-- PROJECTS -->
+          </div><!-- /pub-list -->
+
+          <!-- ── Projects ── -->
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td style="padding:20px;width:100%;vertical-align:middle">
@@ -305,8 +518,6 @@
             </tr>
           </tbody></table>
           <div class="project-grid">
-
-            <!-- Vision with Heat and Light -->
             <div class="project-card">
               <a href="https://imaging.cs.cmu.edu/vision-with-heat-and-light/">
                 <img src="static/images/vision_with_light_and_heat_teaser.jpg" alt="Vision with Heat and Light">
@@ -314,17 +525,17 @@
               <div class="project-card-body">
                 <p class="project-card-title">Vision with Heat and Light</p>
                 <p class="project-card-year">2024-Present (CMU)</p>
+                <span class="pub-award">&#127942; Best Poster Award @CVPR 2025 CCD Workshop</span>
                 <p class="project-card-desc">Jointly leveraging thermal and optical information for physics-based scene understanding and novel imaging modalities.</p>
                 <div class="project-card-links">
-                  <a class="project-card-link" href="https://imaging.cs.cmu.edu/vision-with-heat-and-light/">Project Page</a>
+                  <a class="pub-btn pub-btn-project" href="https://imaging.cs.cmu.edu/vision-with-heat-and-light/">website</a>
+                  <a class="pub-btn pub-btn-poster" href="https://imaging.cs.cmu.edu/vision-with-heat-and-light/files/Vision_with_Heat_and_Light_Poster.pdf">poster</a>
                 </div>
               </div>
             </div>
-            <!-- End Vision with Heat and Light -->
-
           </div>
 
-          <!-- PATENTS -->
+          <!-- ── Patents ── -->
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
             <tr>
               <td style="padding-bottom:5px">
@@ -348,6 +559,7 @@
               </td>
             </tr>
           </tbody></table>
+
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td style="padding:0px">
@@ -358,28 +570,30 @@
               </td>
             </tr>
           </tbody></table>
+
         </td>
       </tr>
     </table>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var defaultBtn = document.querySelector('.pub-tab.active');
-      filterPubs('selected', defaultBtn);
-    });
 
-    function filterPubs(cat, btn) {
-      document.querySelectorAll('.pub-tab').forEach(function(tab) {
-        tab.classList.remove('active');
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var defaultBtn = document.querySelector('.pub-tab.active');
+        filterPubs('selected', defaultBtn);
       });
-      btn.classList.add('active');
-      document.querySelectorAll('#pub-table tr[data-category]').forEach(function(row) {
-        var cats = row.dataset.category.split(' ');
-        var show = cat === 'all' ||
-                   cats.indexOf(cat) !== -1 ||
-                   (cat === 'biology' && cats.indexOf('neuro') !== -1);
-        row.style.display = show ? '' : 'none';
-      });
-    }
-  </script>
+
+      function filterPubs(cat, btn) {
+        document.querySelectorAll('.pub-tab').forEach(function(tab) {
+          tab.classList.remove('active');
+        });
+        btn.classList.add('active');
+        document.querySelectorAll('#pub-list .pub-card-wrap[data-category]').forEach(function(wrap) {
+          var cats = wrap.dataset.category.split(' ');
+          var show = cat === 'all' ||
+                     cats.indexOf(cat) !== -1 ||
+                     (cat === 'biology' && cats.indexOf('neuro') !== -1);
+          wrap.style.display = show ? '' : 'none';
+        });
+      }
+    </script>
   </body>
 </html>
